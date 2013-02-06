@@ -1,0 +1,9 @@
+
+<h2> Here's your hand: </h2>
+
+<% @plays.each do |play| %>
+<%= image_tag("/assets/cards_png/#{ play[0].to_s + play[1].to_s + @play2.to_s+ ".png"}") %> 
+<% end %> 
+<br>
+<%= link_to "Deal Again", poker_url %>
+<%= link_to "Main Menu", main_menu_url %>

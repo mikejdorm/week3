@@ -1,0 +1,19 @@
+<h2> Here's your next turn: </h2> 
+ You rolled a: <%= @dice_one %> and a: <%= @dice_two %> 
+ You rolled a total of: <%= @this_roll %> 
+<br>
+<% if @points.to_i == @this_roll %> 
+	<h2> You won!!! </h2>
+	<%= link_to "Play Again", dice_url %> 
+	<%= link_to "Main Menu", main_menu_url %>
+<% elsif @this_roll == 7 ||  @this_roll == 11 %>
+	<h2> Sorry. You Lost! </h2> 
+	<%= link_to "Play Again", dice_url %> 
+	<%= link_to "Main Menu", main_menu_url %>
+<% else %> 
+	 You need to get <%= @points %> points to win. Keep rolling!
+		<%= form_tag(roll_url, :method => "post") do  %>
+		<%= hidden_field_tag(:points, @points) %>
+ 	    <%= submit_tag "Roll Again" %>
+ 	    <% end %>
+<% end %> 

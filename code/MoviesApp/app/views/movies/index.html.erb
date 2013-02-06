@@ -17,7 +17,7 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <td><%= link_to movie.title, movie_url(movie.id) %></td>
+        <td><%= link_to movie.title, 	movie.id) %></td>
         <td><%= movie.director %></td>
         <td><%= movie.year %></td>
         <td><%= link_to "Delete", movie_url(movie.id), :method => "delete",

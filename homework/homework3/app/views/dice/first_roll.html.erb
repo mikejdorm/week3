@@ -1,0 +1,17 @@
+<h1> Here is your first roll </h1> 
+You rolled a <%= @dice_one %> And a <%= @dice_two %>. <br>
+Your Total Points are: <%= @points %> 
+<br>
+	<% if @points == 7 || @points == 11 %>
+		   You won!! 
+		   <a href=" <%= dice_url %> "> Play Again </a>
+    <% elsif @points == 2 || @points == 3 || @points == 12 %> 
+    	Sorry, You Lost... 
+    	<a href=" <%= dice_url %> "> Play Again </a>
+    <% else %>
+	Roll another <%= @points %> to win. However, if you roll a 7 first you lose. 
+		<%= form_tag(roll_url, :method => "post") do  %>
+		<%= hidden_field_tag(:points, @points) %>
+ 	    <%= submit_tag "Roll Again" %>
+ 	    <% end %>
+	<% end %>
